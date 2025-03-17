@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Confirmed - Banshee Music App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="confirmation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="confirmation-container">
+        <div class="success-animation">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        
+        <h1>Welcome to Banshee Premium!</h1>
+        
+        <div class="confirmation-details">
+            <div class="subscription-info">
+                <h2>Subscription Details</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="label">Plan</span>
+                        <span class="value" id="planName">Premium</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Billing Cycle</span>
+                        <span class="value" id="billingCycle">Monthly</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Next Billing Date</span>
+                        <span class="value" id="nextBilling">March 14, 2024</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Amount</span>
+                        <span class="value" id="amount">$2.99/month</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-preview">
+                <h2>What's Next?</h2>
+                <ul class="feature-list">
+                    <li>
+                        <i class="fas fa-music"></i>
+                        <span>Enjoy ad-free music streaming</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-download"></i>
+                        <span>Download unlimited songs for offline listening</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-headphones"></i>
+                        <span>Experience HD audio quality</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Listen on any device</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="receipt-info">
+                <p>A confirmation email has been sent to <span id="userEmail">user@example.com</span></p>
+                <button class="download-receipt">
+                    <i class="fas fa-download"></i>
+                    Download Receipt
+                </button>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <a href="player.html" class="primary-button">
+                <i class="fas fa-play"></i>
+                Start Listening
+            </a>
+            <a href="profile.html" class="secondary-button">
+                <i class="fas fa-cog"></i>
+                Manage Subscription
+            </a>
+        </div>
+    </div>
+
+    <script src="confirmation.js" type="module"></script>
+</body>
+</html>

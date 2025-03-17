@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Banshee Music App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <h1 class="welcome-header">Welcome to Banshee Music</h1>
+    <div class="login-container">
+        <div class="logo">
+            <img src="imgs/logo-B.png" alt="Banshee Logo">
+        </div>
+        <h1>Login to Banshee</h1>
+        <form id="loginForm" method="POST" action="/api/auth/login" autocomplete="on" novalidate class="login-form">
+            <input type="hidden" name="csrf_token" id="csrf_token">
+            <div class="input-group">
+                <input type="text" id="username" name="username" required 
+                       minlength="3" maxlength="50" 
+                       pattern="^[a-zA-Z0-9_-]+$"
+                       autocomplete="username"
+                       placeholder="Username">
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" name="password" required 
+                       minlength="8" maxlength="128"
+                       autocomplete="current-password"
+                       placeholder="Password">
+            </div>
+            <div class="remember-forgot">
+                <label class="remember-me">
+                    <input type="checkbox" name="remember"> Remember me
+                </label>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+            <button type="submit" class="login-button">Login</button>
+            <div class="signup-link">
+                Don't have an account? <a href="signup.html">Sign up</a>
+            </div>
+        </form>
+    </div>
+    <div id="message" class="message"></div>
+    <script src="login.js" type="module"></script>
+</body>
+</html>

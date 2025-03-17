@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Music - Banshee Music App</title>
+    <meta name="description" content="Explore new music, artists, and genres on Banshee Music">
+    <meta name="theme-color" content="#000000">
+    <link rel="preload" href="imgs/logo-B.png" as="image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="explore.css">
+    <link rel="stylesheet" href="glimmer.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav aria-label="Main navigation">
+            <div class="logo">
+                <a href="subscription.html" aria-label="Go to subscription page">
+                    <img src="imgs/logo-B.png" alt="Banshee Music Logo" loading="lazy">
+                </a>
+            </div>
+            
+            <ul class="menu" role="navigation" aria-label="Main Navigation">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li><a href="explore.html" aria-current="page">Explore</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="player.html">Player</a></li>
+            </ul>
+
+            <div class="user-profile">
+                <button class="profile-button" aria-expanded="false" aria-controls="dropdown-menu">
+                    <img class="profile-icon" src="imgs/profile-icon-B.png" alt="User Profile" loading="lazy">
+                </button>
+                <div class="dropdown">
+                    <ul>
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="settings.html">Settings</a></li>
+                        <li><a href="notifications.html">Notifications</a></li>
+                        <li><a href="#" class="logout">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content" role="main" class="container">
+        <div class="loader" id="loader"></div>
+        
+        <section class="section search-section">
+            <h2>Discover Music</h2>
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    
+                    <input type="search" 
+                           class="search-bar" 
+                           placeholder="Search for artists, songs, or albums..." 
+                           aria-label="Search for music"
+                           role="searchbox"
+                           minlength="2">
+                </div>
+                <button class="primary-button search-button">Search</button>
+            </div>
+
+            <div class="filters-container">
+                <select class="filter-select" aria-label="Filter by genre">
+                    <option value="">Genre</option>
+                    <option value="pop">Pop</option>
+                    <option value="rock">Rock</option>
+                    <option value="hiphop">Hip-Hop</option>
+                    <option value="rnb">R&B</option>
+                    <option value="jazz">Jazz</option>
+                    <option value="electronic">Electronic</option>
+                    <option value="classical">Classical</option>
+                    <option value="indie">Indie</option>
+                    <option value="metal">Metal</option>
+                    <option value="blues">Blues</option>
+                    <option value="country">Country</option>
+                    <option value="folk">Folk</option>
+                    <option value="reggae">Reggae</option>
+                    <option value="latin">Latin</option>
+                    <option value="soul">Soul</option>
+                    <option value="funk">Funk</option>
+                    <option value="punk">Punk</option>
+                    <option value="ambient">Ambient</option>
+                    <option value="edm">EDM</option>
+                    <option value="trap">Trap</option>
+                    <option value="house">House</option>
+                    <option value="techno">Techno</option>
+                    <option value="alternative">Alternative</option>
+                    <option value="world">World</option>
+                    <option value="instrumental">Instrumental</option>
+                    <option value="soundtrack">Soundtrack</option>
+                    <option value="gospel">Gospel</option>
+                </select>
+                <select class="filter-select" aria-label="Filter by popularity">
+                    <option value="">Popularity</option>
+                    <option value="most-popular">Most Popular</option>
+                    <option value="trending">Trending</option>
+                    <option value="new-releases">New Releases</option>
+                </select>
+                <select class="filter-select" aria-label="Filter by release date">
+                    <option value="">Release Date</option>
+                    <option value="today">Today</option>
+                    <option value="this-week">This Week</option>
+                    <option value="last-week">Last Week</option>
+                    <option value="this-month">This Month</option>
+                    <option value="last-month">Last Month</option>
+                    <option value="last-3-months">Last 3 Months</option>
+                    <option value="last-6-months">Last 6 Months</option>
+                    <option value="this-year">This Year</option>
+                    <option value="last-year">Last Year</option>
+                    <option value="last-2-years">Last 2 Years</option>
+                    <option value="last-5-years">Last 5 Years</option>
+                    <option value="2010s">2010s</option>
+                    <option value="2000s">2000s</option>
+                    <option value="1990s">1990s</option>
+                    <option value="1980s">1980s</option>
+                    <option value="1970s">1970s</option>
+                    <option value="older">Older</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="section featured-artists">
+            <h2>Featured Artists</h2>
+            <div class="carousel" data-flickity='{ 
+                "wrapAround": true, 
+                "pageDots": true,
+                "prevNextButtons": true,
+                "autoPlay": 5000,
+                "pauseAutoPlayOnHover": true,
+                "lazyLoad": 2
+            }'>
+                <!-- First Grid -->
+                <div class="carousel-cell">
+                    <div class="skeleton-items">
+                        <div class="skeleton-item"></div>
+                        <div class="skeleton-item"></div>
+                        <div class="skeleton-item"></div>
+                        <div class="skeleton-item"></div>
+                    </div>
+                    <div class="items">
+                        <div class="item">
+                            <div class="img-container">
+                                <img src="imgs/album-02.png" 
+                                     alt="Artist 1" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Artist 1</h3>
+                            <button class="primary-button">View Profile</button>
+                            
+                            <!-- Quick Preview Overlay -->
+                            <div class="preview-overlay" role="dialog" aria-label="Quick preview">
+                                <div class="quick-actions">
+                                    <button class="quick-action-btn" 
+                                            aria-label="Play"
+                                            tabindex="0">
+                                        <i class="fas fa-play-circle" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="quick-action-btn" aria-label="Add to playlist">
+                                        <i class="fas fa-plus-circle" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="quick-action-btn" aria-label="Share">
+                                        <i class="fas fa-share-alt" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                                <div class="preview-content">
+                                    <p class="genre">Pop • Rock</p>
+                                    <p class="followers">2.5M Followers</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="img-container">
+                                <img src="imgs/album-02.png" 
+                                     alt="Artist 2" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Artist 2</h3>
+                            <button class="primary-button">View Profile</button>
+                        </div>
+                        <div class="item">
+                            <div class="img-container">
+                                <img src="imgs/album-02.png" 
+                                     alt="Artist 3" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Artist 3</h3>
+                            <button class="primary-button">View Profile</button>
+                        </div>
+                        <div class="item">
+                            <div class="img-container">
+                                <img src="imgs/album-02.png" 
+                                     alt="Artist 4" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Artist 4</h3>
+                            <button class="primary-button">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Second Grid -->
+                <div class="carousel-cell">
+                    <div class="skeleton-items">
+                        <div class="skeleton-item"></div>
+                        <div class="skeleton-item"></div>
+                        <div class="skeleton-item"></div>
+                        <div class="skeleton-item"></div>
+                    </div>
+                    <div class="items">
+                        <div class="item">
+                            <div class="img-container">
+                                <img src="imgs/album-02.png" 
+                                     alt="Artist 5" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Artist 5</h3>
+                            <button class="primary-button">View Profile</button>
+                        </div>
+                        <div class="item">
+                            <div class="img-container">
+                                <img src="imgs/album-02.png" 
+                                     alt="Artist 6" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Artist 6</h3>
+                            <button class="primary-button">View Profile</button>
+                        </div>
+                        <div class="item">
+                            <div class="img-container">
+                                <img src="imgs/album-02.png" 
+                                     alt="Artist 7" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Artist 7</h3>
+                            <button class="primary-button">View Profile</button>
+                        </div>
+                        <div class="item">
+                            <div class="img-container">
+                                <img src="imgs/album-02.png" 
+                                     alt="Artist 8" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Artist 8</h3>
+                            <button class="primary-button">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommended Music Section -->
+        <section class="section recommended-music">
+            <h2>Recommended Music</h2>
+            <div class="carousel" data-flickity='{ 
+                "wrapAround": true, 
+                "pageDots": true,
+                "prevNextButtons": true,
+                "autoPlay": 5000,
+                "pauseAutoPlayOnHover": true,
+                "lazyLoad": 2
+            }'>
+                <!-- First Grid -->
+                <div class="carousel-cell">
+                    <div class="skeleton-items">
+                        <div class="skeleton-item"></div>
+                        <div class="skeleton-item"></div>
+                        <div class="skeleton-item"></div>
+                        <div class="skeleton-item"></div>
+                    </div>
+                    <div class="items">
+                        <div class="item">
+                            <div class="img-container">
+                                <img class="music-note" 
+                                     src="imgs/album-02.png" 
+                                     alt="Album 1" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Album 1</h3>
+                            <button class="primary-button">Play</button>
+
+                            <!-- Quick Preview Overlay -->
+                            <div class="preview-overlay" role="dialog" aria-label="Quick preview">
+                                <div class="quick-actions">
+                                    <button class="quick-action-btn" 
+                                            aria-label="Play"
+                                            tabindex="0">
+                                        <i class="fas fa-play-circle" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="quick-action-btn" aria-label="Add to playlist">
+                                        <i class="fas fa-plus-circle" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="quick-action-btn" aria-label="Share">
+                                        <i class="fas fa-share-alt" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                                <div class="preview-content">
+                                    <p class="artist">Artist Name</p>
+                                    <p class="duration">3:45 • 12 tracks</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="img-container">
+                                <img class="music-note" 
+                                     src="imgs/album-02.png" 
+                                     alt="Album 2" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Album 2</h3>
+                            <button class="primary-button">Play</button>
+                        </div>
+                        <div class="item">
+                            <div class="img-container">
+                                <img class="music-note" 
+                                     src="imgs/album-02.png" 
+                                     alt="Album 3" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Album 3</h3>
+                            <button class="primary-button">Play</button>
+                        </div>
+                        <div class="item">
+                            <div class="img-container">
+                                <img class="music-note" 
+                                     src="imgs/album-02.png" 
+                                     alt="Album 4" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Album 4</h3>
+                            <button class="primary-button">Play</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Grid -->
+                <div class="carousel-cell">
+                    <div class="skeleton-items">
+                        <div class="skeleton-item"></div>
+                        <div class="skeleton-item"></div>
+                        <div class="skeleton-item"></div>
+                        <div class="skeleton-item"></div>
+                    </div>
+                    <div class="items">
+                        <div class="item">
+                            <div class="img-container">
+                                <img class="music-note" 
+                                     src="imgs/album-02.png" 
+                                     alt="Album 5" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Album 5</h3>
+                            <button class="primary-button">Play</button>
+                        </div>
+                        <div class="item">
+                            <div class="img-container">
+                                <img class="music-note" 
+                                     src="imgs/album-02.png" 
+                                     alt="Album 6" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Album 6</h3>
+                            <button class="primary-button">Play</button>
+                        </div>
+                        <div class="item">
+                            <div class="img-container">
+                                <img class="music-note" 
+                                     src="imgs/album-02.png" 
+                                     alt="Album 7" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Album 7</h3>
+                            <button class="primary-button">Play</button>
+                        </div>
+                        <div class="item">
+                            <div class="img-container">
+                                <img class="music-note" 
+                                     src="imgs/album-02.png" 
+                                     alt="Album 8" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Album 8</h3>
+                            <button class="primary-button">Play</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Genres Section -->
+        <section class="section genres">
+            <h2>Popular Genres</h2>
+            <div class="carousel" data-flickity='{ 
+                "wrapAround": true, 
+                "pageDots": true,
+                "prevNextButtons": true,
+                "autoPlay": 5000,
+                "pauseAutoPlayOnHover": true,
+                "lazyLoad": 2
+            }'>
+                <!-- First Grid -->
+                <div class="carousel-cell">
+                    <div class="skeleton-items">
+                        <div class="skeleton-item"></div>
+                        <div class="skeleton-item"></div>
+                        <div class="skeleton-item"></div>
+                        <div class="skeleton-item"></div>
+                    </div>
+                    <div class="items">
+                        <div class="item">
+                            <div class="img-container">
+                                <img src="imgs/album-03.png" 
+                                     alt="Genre 1" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Genre 1</h3>
+
+                            <!-- Quick Preview Overlay -->
+                            <div class="preview-overlay" role="dialog" aria-label="Quick preview">
+                                <div class="quick-actions">
+                                    <button class="quick-action-btn" 
+                                            aria-label="Play mix"
+                                            tabindex="0">
+                                        <i class="fas fa-random" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="quick-action-btn" aria-label="View all">
+                                        <i class="fas fa-th-large" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                                <div class="preview-content">
+                                    <p class="tracks">1000+ tracks</p>
+                                    <p class="artists">500+ artists</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="img-container">
+                                <img src="imgs/album-03.png" 
+                                     alt="Genre 2" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Genre 2</h3>
+                        </div>
+                        <div class="item">
+                            <div class="img-container">
+                                <img src="imgs/album-03.png" 
+                                     alt="Genre 3" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Genre 3</h3>
+                        </div>
+                        <div class="item">
+                            <div class="img-container">
+                                <img src="imgs/album-03.png" 
+                                     alt="Genre 4" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Genre 4</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Grid -->
+                <div class="carousel-cell">
+                    <div class="skeleton-items">
+                        <div class="skeleton-item"></div>
+                        <div class="skeleton-item"></div>
+                        <div class="skeleton-item"></div>
+                        <div class="skeleton-item"></div>
+                    </div>
+                    <div class="items">
+                        <div class="item">
+                            <div class="img-container">
+                                <img src="imgs/album-03.png" 
+                                     alt="Genre 5" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Genre 5</h3>
+                        </div>
+                        <div class="item">
+                            <div class="img-container">
+                                <img src="imgs/album-03.png" 
+                                     alt="Genre 6" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Genre 6</h3>
+                        </div>
+                        <div class="item">
+                            <div class="img-container">
+                                <img src="imgs/album-03.png" 
+                                     alt="Genre 7" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Genre 7</h3>
+                        </div>
+                        <div class="item">
+                            <div class="img-container">
+                                <img src="imgs/album-03.png" 
+                                     alt="Genre 8" 
+                                     loading="lazy"
+                                     width="200" 
+                                     height="200"
+                                     decoding="async"
+                                     fetchpriority="low">
+                            </div>
+                            <h3>Genre 8</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="pagination">
+            <button class="nav-button" aria-label="Previous Page">Previous</button>
+            <button class="nav-button active" aria-label="Page 1">1</button>
+            <button class="nav-button" aria-label="Page 2">2</button>
+            <button class="nav-button" aria-label="Page 3">3</button>
+            <button class="nav-button" aria-label="Next Page">Next</button>
+        </div>
+    </main>
+
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+        <a href="index.html" class="nav-item" style="min-height: 44px; min-width: 44px;">
+            <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3L4 9v12h16V9l-8-6z" fill="currentColor"/>
+            </svg>
+            <span>Home</span>
+        </a>
+        <a href="explore.html" class="nav-item active">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="currentColor"/>
+            </svg>
+            <span>Explore</span>
+        </a>
+        <a href="library.html" class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+                <path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 5h-3v5.5c0 1.38-1.12 2.5-2.5 2.5S10 13.88 10 12.5s1.12-2.5 2.5-2.5c.57 0 1.08.19 1.5.51V5h4v2zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6z" fill="currentColor"/>
+            </svg>
+            <span>Library</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="currentColor"/>
+            </svg>
+            <span>Profile</span>
+        </a>
+    </nav>
+
+    
+
+    <button onclick="window.scrollTo(0, 0)" id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+    
+    <footer>
+        <p>&copy; 2023 Banshee Music App. All rights reserved.</p>
+    </footer>
+
+    <script src="navbar.js"></script>
+    <script src="explore.js" type="module"></script>
+</body>
+</html>

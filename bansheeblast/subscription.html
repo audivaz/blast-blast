@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Critical CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Defer non-critical CSS -->
+    <link rel="preload" href="subscription.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="subscription.css"></noscript>
+    
+    <!-- Preconnect to payment gateway -->
+    <link rel="preconnect" href="https://api.stripe.com">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="subscription.html" aria-label="Go to subscription page">
+                    <img src="imgs/logo-B.png" alt="Banshee Music Logo" loading="lazy">
+                </a>
+            </div>
+            <ul class="menu" role="navigation" aria-label="Main Navigation">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="player.html">Player</a></li>
+            </ul>
+            <div class="user-profile">
+                <button class="profile-button" aria-expanded="false" aria-controls="dropdown-menu">
+                    <img class="profile-icon" src="imgs/profile-icon-B.png" alt="User Profile" loading="lazy">
+                </button>
+                <div class="dropdown">
+                    <ul>
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="settings.html">Settings</a></li>
+                        <li><a href="notifications.html">Notifications</a></li>
+                        <li><a href="#" class="logout">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content" class="container">
+        <h1>Choose Your Subscription</h1>
+        <div class="subscription-plans">
+            <div class="plan">
+                <div class="plan-header">
+                    <h2>Free Account</h2>
+                    <p class="price">
+                        <span class="currency">$</span>
+                        0
+                        <span class="period">/month</span>
+                    </p>
+                </div>
+                <ul>
+                    <li>Enjoy Banshee with occasional ads</li>
+                    <li>Basic audio quality (128kbps)</li>
+                    <li>Limited skips (6 per hour)</li>
+                    <li>Mobile app access</li>
+                </ul>
+                <button class="subscribe-btn" data-plan="free">Get Started</button>
+            </div>
+            <div class="plan featured">
+                <div class="plan-header">
+                    <h2>Premium</h2>
+                    <p class="price">
+                        <span class="currency">$</span>
+                        2.99
+                        <span class="period">/month</span>
+                    </p>
+                </div>
+                <ul>
+                    <li>Ad-free listening experience</li>
+                    <li>High-quality audio (320kbps)</li>
+                    <li>Unlimited skips</li>
+                    <li>Offline mode</li>
+                    <li>Cross-platform sync</li>
+                    <li>Exclusive content access</li>
+                </ul>
+                <button class="subscribe-btn" data-plan="premium">Subscribe Now</button>
+            </div>
+            <div class="plan">
+                <div class="plan-header">
+                    <h2>Artist Account</h2>
+                    <p class="price">
+                        <span class="currency">$</span>
+                        4.99
+                        <span class="period">/month</span>
+                    </p>
+                </div>
+                <ul>
+                    <li>All Premium features included</li>
+                    <li>Upload unlimited tracks</li>
+                    <li>Advanced analytics dashboard</li>
+                    <li>Promotional tools</li>
+                    <li>Direct fan engagement</li>
+                    <li>Custom artist profile</li>
+                </ul>
+                <button class="subscribe-btn" data-plan="artist">Start Creating</button>
+            </div>
+        </div>
+    </main>
+
+    <div class="subscription-progress">
+        <div class="progress-step active">
+            <span class="step-number">1</span>
+            <span class="step-text">Choose Plan</span>
+        </div>
+        <div class="progress-step">
+            <span class="step-number">2</span>
+            <span class="step-text">Payment</span>
+        </div>
+        <div class="progress-step">
+            <span class="step-number">3</span>
+            <span class="step-text">Confirmation</span>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Banshee Music App. All rights reserved.</p>
+    </footer>
+
+    <script src="subscription.js" type="module"></script>
+</body>
+</html>

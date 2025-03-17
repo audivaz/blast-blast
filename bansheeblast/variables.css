@@ -1,0 +1,25 @@
+/* 
+:root {
+    /* Colors */
+    /*
+    --background-color: #0D1117;
+    --text-color: #ffffff;
+    --electric-violet: #6F00FF;
+    --neon-blue: #00E0FF;
+    --cosmic-pink: #FF006E;
+    --cyber-lime: #A7FF4A;
+    */
+    
+    /* Gradients */
+    /*
+    --button-gradient: linear-gradient(45deg, var(--neon-blue), var(--cosmic-pink));
+    --header-gradient: linear-gradient(to right, var(--header-gradient-start), var(--header-gradient-end));
+    */
+    
+    /* Components */
+    /*
+    --dropdown-bg: rgba(255, 255, 255, 0.1);
+    --dropdown-border: 1px solid rgba(255, 255, 255, 0.1);
+    --dropdown-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    */
+}

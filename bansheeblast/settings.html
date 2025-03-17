@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Banshee Music App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <nav role="navigation" aria-label="Main navigation">
+            <div class="logo">
+                <a href="subscription.html" aria-label="Go to subscription page">
+                    <img src="imgs/logo-B.png" alt="Banshee Music Logo" loading="lazy">
+                </a>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="player.html">Player</a></li>
+            </ul>
+            <div class="user-profile">
+                <button class="profile-button" aria-expanded="false" aria-controls="user-menu">
+                    <img class="profile-icon" src="imgs/profile-icon-B.png" alt="User Profile" loading="lazy">
+                </button>
+                <div id="user-menu" class="dropdown" hidden>
+                    <ul>
+                        <li role="none"><a href="settings.html" role="menuitem" aria-current="page">Settings</a></li>
+                        <li><a href="notifications.html">Notifications</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content" class="container">
+        <div class="loader" id="loader"></div>
+        
+        <h1>Settings</h1>
+        <section class="settings-section">
+            <h2>Account Settings</h2>
+            <form id="accountSettingsForm">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" value="CurrentUsername" required>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value="user@example.com" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter new password">
+
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm new password">
+
+                <h3>Danger Zone</h3>
+                <button type="button" id="delete-account" class="danger-button">Delete Account</button>
+                
+                <button type="submit">Save Changes</button>
+            </form>
+        </section>
+
+        <section class="settings-section">
+            <h2>Preferences</h2>
+            <form id="preferencesForm">
+                <label for="theme">Theme</label>
+                <select id="theme" name="theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+
+                <label for="language">Language</label>
+                <select id="language" name="language">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                </select>
+
+                <label for="quality">Audio Quality</label>
+                <select id="quality" name="quality">
+                    <option value="normal">Normal</option>
+                    <option value="high">High</option>
+                    <option value="very-high">Very High</option>
+                </select>
+
+                <div class="checkbox-label">
+                    <input type="checkbox" id="autoplay" name="autoplay">
+                    <label for="autoplay">Autoplay</label>
+                </div>
+                
+                <div class="checkbox-label">
+                    <input type="checkbox" id="notifications" name="notifications" checked>
+                    <label for="notifications">Email Notifications</label>
+                </div>
+                
+                <button type="submit">Save Preferences</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="settings.js" type="module"></script>
+</body>
+</html>

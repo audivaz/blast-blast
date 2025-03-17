@@ -1,0 +1,13 @@
+# Stage all modified files
+git add profile.html explore.html explore.css profile.css
+
+# Create a commit with a descriptive message
+git commit -m "feat(navbar): add profile icon animation indicator for active page
+
+- Add rotating gradient border animation to profile icon
+- Implement pulsing glow effect for active state
+- Add responsive and accessible styling
+- Include reduced motion support"
+
+# Push changes to the remote repository
+git push origin main

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Banshee Music App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="imgs/logo-B.png" alt="Banshee Music Logo" width="32" height="32">
+                </a>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="player.html">Player</a></li>
+            </ul>
+            <div class="user-profile">
+                <button class="profile-button active" aria-expanded="false" aria-controls="user-menu">
+                    <img class="profile-icon" src="imgs/profile-icon-B.png" alt="User Profile">
+                </button>
+                <div id="user-menu" class="dropdown" hidden>
+                    <ul>
+                        <li><a href="profile.html" aria-current="page">Profile</a></li>
+                        <li><a href="settings.html">Settings</a></li>
+                        <li><a href="#" class="logout">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="profile-hero">
+            <div class="profile-container">
+                <div class="profile-header">
+                    <div class="profile-image-container">
+                        <img src="imgs/profile-icon-B.png" alt="Profile Picture" id="profile-image">
+                    </div>
+                    <div class="profile-info">
+                        <h1 class="profile-name">User Name</h1>
+                        <p class="profile-bio">User bio goes here. This is where users can write a short description about themselves.</p>
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <span class="stat-value">250</span>
+                                <span class="stat-label">Posts</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">12.5K</span>
+                                <span class="stat-label">Followers</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">1.2K</span>
+                                <span class="stat-label">Following</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="edit-profile-btn">Edit Profile</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="profile-content">
+            <div class="content-section">
+                <div class="playlists-container">
+                    <div class="section-header">
+                        <h2>Your Playlists</h2>
+                        <button class="view-all-btn">View All</button>
+                    </div>
+                    
+                    <div class="playlists-grid">
+                        <div class="playlist-card">
+                            <div class="playlist-info">
+                                <h3 class="playlist-title">My Favorites</h3>
+                                <span class="playlist-tracks">24 tracks</span>
+                            </div>
+                        </div>
+                        
+                        <div class="playlist-card">
+                            <div class="playlist-info">
+                                <h3 class="playlist-title">Chill Vibes</h3>
+                                <span class="playlist-tracks">18 tracks</span>
+                            </div>
+                        </div>
+                        
+                        <div class="playlist-card">
+                            <div class="playlist-info">
+                                <h3 class="playlist-title">Workout Mix</h3>
+                                <span class="playlist-tracks">32 tracks</span>
+                            </div>
+                        </div>
+                        
+                       
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <div class="section-header">
+                    <h2>Recently Played</h2>
+                    <button class="view-all-btn" data-section="recent">View All</button>
+                </div>
+                <div class="cards-grid" id="recent-grid">
+                    <div class="empty-state" hidden>
+                        <div class="empty-state-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" 
+                                      stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Nothing to see here yet</h3>
+                        <p>Start adding some content to your profile</p>
+                        <button class="primary-btn">Get Started</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <div class="section-header">
+                    <h2>Favorite Artists</h2>
+                    <button class="view-all-btn" data-section="artists">View All</button>
+                </div>
+                <div class="cards-grid" id="artists-grid">
+                    <div class="empty-state" hidden>
+                        <div class="empty-state-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" 
+                                      stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Nothing to see here yet</h3>
+                        <p>Start adding some content to your profile</p>
+                        <button class="primary-btn">Get Started</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="profile.js" type="module"></script>
+</body>
+<div class="modal" id="edit-profile-modal">
+    <div class="modal-content">
+        <h2>Edit Profile</h2>
+        <form id="edit-profile-form">
+            <div class="form-group">
+                <label for="edit-name">Display Name</label>
+                <input type="text" id="edit-name" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-bio">Bio</label>
+                <textarea id="edit-bio" rows="3"></textarea>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="cancel-btn">Cancel</button>
+                <button type="submit" class="save-btn">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal" id="connections-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="followers">Followers</button>
+                <button class="tab-btn" data-tab="following">Following</button>
+            </div>
+            <button class="close-btn" aria-label="Close">&times;</button>
+        </div>
+        <div class="connections-list" id="followers-list"></div>
+        <div class="connections-list hidden" id="following-list"></div>
+    </div>
+</div>
+<!-- Activity Details Modal -->
+<div class="modal" id="activity-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Activity Details</h3>
+            <button class="close-btn" aria-label="Close">&times;</button>
+        </div>
+        <div class="activity-details"></div>
+        <div class="modal-actions">
+            <button class="share-btn">Share</button>
+            <button class="like-btn">Like</button>
+        </div>
+    </div>
+</div>
+</html>

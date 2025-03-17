@@ -1,0 +1,25 @@
+/* Commenting out dropdown styles for now
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: none;
+    background-color: var(--dropdown-bg);
+    border: var(--dropdown-border);
+    border-radius: 5px;
+    box-shadow: var(--dropdown-shadow);
+}
+
+.dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+}
+
+.dropdown ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 5px 10px;
+    display: block;
+}
+*/

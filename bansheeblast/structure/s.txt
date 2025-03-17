@@ -1,0 +1,42 @@
+banshee-music-app/ structure -- Alpha
+│
+├── index.html
+├── login.html
+├── profile.html
+├── artist.html
+├── explore.html
+├── subscription.html
+├── player.html
+│
+├── css/
+│   ├── style.css
+│   ├── login.css
+│   ├── profile.css
+│   ├── artist.css
+│   ├── explore.css
+│   ├── subscription.css
+│   ├── player.css
+│
+├── js/
+│   ├── main.js
+│   ├── login.js
+│   ├── profile.js
+│   ├── artist.js
+│   ├── explore.js
+│   ├── subscription.js
+│   ├── player.js
+│
+└── assets/
+    ├── images/
+    │   ├── album-cover.jpg
+    │   ├── artist1.jpg
+    │   ├── artist2.jpg
+    │   ├── album1.jpg
+    │   ├── album2.jpg
+    │
+    ├── audio/
+        ├── audio-file.mp3
+
+
+
+

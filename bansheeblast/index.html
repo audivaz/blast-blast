@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banshee Music App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/artist.css">
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="subscription.html" aria-label="Go to subscription page">
+                    <img src="imgs/logo-B.png" alt="Banshee Music Logo" loading="lazy">
+                </a>
+            </div>
+            <ul class="menu" role="navigation" aria-label="Main Navigation">
+                <li role="none"><a href="index.html" role="menuitem" aria-current="page">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="player.html">Player</a></li>
+            </ul>
+            <div class="user-profile">
+                <button class="profile-button" aria-expanded="false" aria-controls="dropdown-menu">
+                    <img class="profile-icon" src="imgs/profile-icon-B.png" alt="User Profile" loading="lazy">
+                </button>
+                <div class="dropdown">
+                    <ul>
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="settings.html">Settings</a></li>
+                        <li><a href="notifications.html">Notifications</a></li>
+                        <li><a href="#" class="logout">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header> 
+  
+    <main class="container">
+        <div class="loader" id="loader"></div>
+        
+        <section class="hero">
+            <div class="hero-content">
+                <div class="stars">  
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                </div>
+                <h1>Welcome to Banshee Music</h1>
+                <p>Discover, stream, and share your favorite music</p>
+                <a href="explore.html" class="cta-button">Start Exploring</a>
+            </div>
+        </section>
+
+        <section class="quick-access">
+            <h2>Quick Access</h2>
+            <div class="quick-links">
+                <a href="playlist.html" class="quick-link" aria-label="Your Playlists">
+                    <img src="imgs/mic-A.png" alt="Playlist Icon">
+                    <span>Your Playlists</span>
+                </a>
+                <a href="library.html" class="quick-link" aria-label="Your Library">
+                    <img src="imgs/note-B.png" alt="Library Icon">
+                    <span>Your Library</span>
+                </a>
+                <a href="explore.html" class="quick-link" aria-label="Explore">
+                    <img src="imgs/artist.png.png" alt="Explore Icon">
+                    <span>Explore</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="section trending">
+            <h2>Trending Music</h2>
+            <div class="cards">
+                <div class="card">
+                    <div class="img-container">
+                        <img src="imgs/album-01.png" alt="Album 1" loading="lazy">
+                    </div>
+                    <h3>Album 1</h3>
+                    <button class="play-button" aria-label="Play Album 1">Play</button>
+                </div>
+                <div class="card">
+                    <div class="img-container">
+                        <img src="imgs/album-02.png" alt="Album 2" loading="lazy">
+                    </div>
+                    <h3>Album 2</h3>
+                    <button class="play-button" aria-label="Play Album 2">Play</button>
+                </div>
+                <div class="card">
+                    <div class="img-container">
+                        <img src="imgs/album-03.png" alt="Album 3" loading="lazy">
+                    </div>
+                    <h3>Album 3</h3>
+                    <button class="play-button" aria-label="Play Album 3">Play</button>
+                </div>
+                <div class="card">
+                    <div class="img-container">
+                        <img src="imgs/album-04.png" alt="Album 4" loading="lazy">
+                    </div>
+                    <h3>Album 4</h3>
+                    <button class="play-button" aria-label="Play Album 4">Play</button>
+                </div>
+                <div class="card">
+                    <div class="img-container">
+                        <img src="imgs/album-05.png" alt="Album 5" loading="lazy">
+                    </div>
+                    <h3>Album 5</h3>
+                    <button class="play-button" aria-label="Play Album 5">Play</button>
+                </div>
+                <div class="card">
+                    <div class="img-container">
+                        <img src="imgs/album-05.png" alt="Album 6" loading="lazy">
+                    </div>
+                    <h3>Album 6</h3>
+                    <button class="play-button" aria-label="Play Album 6">Play</button>
+                </div>
+            </div>
+        </section>     
+
+        <section class="section featured-artists">
+            <h2>Featured Artists</h2>
+            <div class="cards">
+                <div class="card">
+                    <div class="img-container">
+                        <img src="imgs/album-01.png" alt="Artist 1" loading="lazy">
+                    </div>
+                    <h3>Artist 1</h3>
+                    <button class="view-profile" aria-label="View Artist 1 Profile">View Profile</button>
+                </div>
+                <div class="card">
+                    <div class="img-container">
+                        <img src="imgs/album-02.png" alt="Artist 2" loading="lazy">
+                    </div>
+                    <h3>Artist 2</h3>
+                    <button class="view-profile" aria-label="View Artist 2 Profile">View Profile</button>
+                </div>
+                <div class="card">
+                    <div class="img-container">
+                        <img src="imgs/album-03.png" alt="Artist 3" loading="lazy">
+                    </div>
+                    <h3>Artist 3</h3>
+                    <button class="view-profile" aria-label="View Artist 3 Profile">View Profile</button>
+                </div>
+                <div class="card">
+                    <div class="img-container">
+                        <img src="imgs/album-04.png" alt="Artist 4" loading="lazy">
+                    </div>
+                    <h3>Artist 4</h3>
+                    <button class="view-profile" aria-label="View Artist 4 Profile">View Profile</button>
+                </div>
+                <div class="card">
+                    <div class="img-container">
+                        <img src="imgs/album-05.png" alt="Artist 5" loading="lazy">
+                    </div>
+                    <h3>Artist 5</h3>
+                    <button class="view-profile" aria-label="View Artist 5 Profile">View Profile</button>
+                </div>
+                <div class="card">
+                    <div class="img-container">
+                        <img src="imgs/album-01.png" alt="Artist 6" loading="lazy">
+                    </div>
+                    <h3>Artist 6</h3>
+                    <button class="view-profile" aria-label="View Artist 6 Profile">View Profile</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section new-releases">
+            <h2>New Releases</h2>
+            <div class="cards">
+                <div class="card">
+                    <div class="img-container">
+                        <img src="imgs/album-01.png" alt="New Release 1" loading="lazy">
+                    </div>
+                    <h3>New Release 1</h3>
+                    <button class="play-button" aria-label="Play New Release 1">Play</button>
+                </div>
+                <div class="card">
+                    <div class="img-container">
+                        <img src="imgs/album-02.png" alt="New Release 2" loading="lazy">
+                    </div>
+                    <h3>New Release 2</h3>
+                    <button class="play-button" aria-label="Play New Release 2">Play</button>
+                </div>
+                <div class="card">
+                    <div class="img-container">
+                        <img src="imgs/album-03.png" alt="New Release 3" loading="lazy">
+                    </div>
+                    <h3>New Release 3</h3>
+                    <button class="play-button" aria-label="Play New Release 3">Play</button>
+                </div>
+                <div class="card">
+                    <div class="img-container">
+                        <img src="imgs/album-04.png" alt="New Release 4" loading="lazy">
+                    </div>
+                    <h3>New Release 4</h3>
+                    <button class="play-button" aria-label="Play New Release 4">Play</button>
+                </div>
+                <div class="card">
+                    <div class="img-container">
+                        <img src="imgs/album-05.png" alt="New Release 5" loading="lazy">
+                    </div>
+                    <h3>New Release 5</h3>
+                    <button class="play-button" aria-label="Play New Release 5">Play</button>
+                </div>
+                <div class="card">
+                    <div class="img-container">
+                        <img src="imgs/album-01.png" alt="New Release 6" loading="lazy">
+                    </div>
+                    <h3>New Release 6</h3>
+                    <button class="play-button" aria-label="Play New Release 6">Play</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section recommendations">
+            <h2>Recommended for You</h2>
+            <div class="carousel-container js-flickity" data-flickity-options='{ 
+                "wrapAround": true,
+                "prevNextButtons": true,
+                "pageDots": true,
+                "autoPlay": 5000
+            }'>
+                <div class="carousel-cell">
+                    <div class="recommendation-card">
+                        <div class="img-container">
+                            <img src="imgs/album-01.png" alt="Recommended Album 1" loading="lazy">
+                        </div>
+                        <h3>Recommended Album 1</h3>
+                        <button class="play-button" aria-label="Play Recommended Album 1">Play</button>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="recommendation-card">
+                        <div class="img-container">
+                            <img src="imgs/album-02.png" alt="Recommended Album 2" loading="lazy">
+                        </div>
+                        <h3>Recommended Album 2</h3>
+                        <button class="play-button" aria-label="Play Recommended Album 2">Play</button>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="recommendation-card">
+                        <div class="img-container">
+                            <img src="imgs/album-03.png" alt="Recommended Album 3" loading="lazy">
+                        </div>
+                        <h3>Recommended Album 3</h3>
+                        <button class="play-button" aria-label="Play Recommended Album 3">Play</button>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="recommendation-card">
+                        <div class="img-container">
+                            <img src="imgs/album-04.png" alt="Recommended Album 4" loading="lazy">
+                        </div>
+                        <h3>Recommended Album 4</h3>
+                        <button class="play-button" aria-label="Play Recommended Album 4">Play</button>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="recommendation-card">
+                        <div class="img-container">
+                            <img src="imgs/album-05.png" alt="Recommended Album 5" loading="lazy">
+                        </div>
+                        <h3>Recommended Album 5</h3>
+                        <button class="play-button" aria-label="Play Recommended Album 5">Play</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to top button - placed after main content but before footer -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+
+    <footer>
+        <p>&copy; 2023 Banshee Music App. All rights reserved.</p>
+    </footer>
+
+    <script src="main.js" type="module"></script>
+</body>
+</html>
+  

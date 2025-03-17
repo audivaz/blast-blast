@@ -1,0 +1,652 @@
+:root {
+    --background-color: #0D1117;  /* Updated to match style.css */
+    --text-color: #ffffff;
+    --accent-color: #2b95dd;
+    --button-gradient-start: #00E0FF;
+    --button-gradient-end: #FF006E;
+    --button-gradient: linear-gradient(45deg, var(--button-gradient-start), var(--button-gradient-end));
+    --header-gradient-start: #13151a;  /* Updated to match style.css */
+    --header-gradient-end: #1a1d24;    /* Updated to match style.css */
+    --header-gradient: linear-gradient(to right, var(--header-gradient-start) 0%, var(--header-gradient-end) 100%);
+    --button-text-color: #ffffff;
+    --text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    --heading-gradient-primary: #2b95dd;
+    --heading-gradient-secondary: #61efff;
+    --heading-gradient-accent: rgba(43, 149, 221, 0.2);
+}
+
+/* Navbar Styles */
+header {
+    background: var(--header-gradient);
+    padding: 12px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: var(--button-shadow);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo img {
+    width: 90px;
+    height: 90px;
+    transition: transform var(--transition-speed);
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-speed);
+}
+
+.menu a:hover,
+.menu a[aria-current="page"] {
+    color: var(--accent-color);
+}
+
+/* User Profile */
+.user-profile {
+    position: relative;
+    cursor: pointer;
+}
+
+.profile-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all var(--transition-speed) ease;
+    filter: brightness(0.95);
+}
+
+.profile-icon:hover {
+    transform: scale(1.05);
+    border-color: rgba(0, 224, 255, 0.3);
+    box-shadow: 
+        0 0 15px rgba(0, 224, 255, 0.2),
+        0 0 30px rgba(0, 224, 255, 0.1);
+    filter: brightness(1.1);
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: linear-gradient(
+        135deg,
+        var(--header-gradient-start),
+        var(--header-gradient-end)
+    );
+    border-radius: 12px;
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.2),
+        0 0 15px rgba(0, 224, 255, 0.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    transform-origin: top right;
+}
+
+/* Change from .dropdown.active to .user-profile:hover .dropdown */
+.user-profile:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 8px;
+}
+
+.dropdown ul li {
+    margin: 2px 0;
+}
+
+.dropdown ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px 16px;
+    display: block;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all var(--transition-speed) ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.dropdown ul li a:hover {
+    color: var(--neon-blue);
+    text-shadow: 
+        0 0 8px rgba(0, 224, 255, 0.3),
+        0 0 16px rgba(0, 224, 255, 0.2);
+    transform: translateX(2px);
+}
+
+.dropdown ul li a:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--neon-blue),
+        transparent
+    );
+    animation: shimmer 2s linear infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Optional: Add a subtle transition effect when opening dropdown */
+.dropdown {
+    transform-origin: top right;
+    transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    nav {
+        padding: 1rem;
+    }
+    
+    .menu {
+        gap: 1rem;
+    }
+    
+    .menu a {
+        font-size: 0.9rem;
+    }
+
+    .dropdown {
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu {
+        display: none;
+    }
+    
+    .mobile-menu-button {
+        display: block;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 160px auto 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.subscription-plans {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.plan {
+    background: linear-gradient(315deg, var(--header-gradient-start) 0%, var(--header-gradient-end) 100%);
+    border-radius: 10px;
+    padding: 30px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.plan:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(43, 149, 221, 0.15);
+    border-color: rgba(43, 149, 221, 0.3);
+}
+
+.plan.featured {
+    background: linear-gradient(
+        135deg,
+        rgba(111, 0, 255, 0.15) 0%,
+        rgba(0, 224, 255, 0.15) 100%
+    );
+    color: #fff;
+    border: 1px solid rgba(97, 239, 255, 0.2);
+    box-shadow: 
+        0 4px 20px rgba(43, 149, 221, 0.2),
+        inset 0 0 20px rgba(97, 239, 255, 0.05);
+    position: relative;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.plan.featured::before {
+    content: 'Most Popular';
+    position: absolute;
+    top: 20px;
+    right: -35px;
+    background: var(--button-gradient);
+    padding: 8px 40px;
+    transform: rotate(45deg);
+    font-size: 0.8rem;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.plan.featured:hover {
+    transform: translateY(-5px);
+    border-color: rgba(97, 239, 255, 0.3);
+    box-shadow: 
+        0 8px 25px rgba(43, 149, 221, 0.25),
+        inset 0 0 30px rgba(97, 239, 255, 0.1);
+}
+
+.plan h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.plan .price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.plan .price .currency {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.plan .price .period {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: normal;
+}
+
+.plan ul {
+    margin: 25px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.plan ul li {
+    margin: 12px 0;
+    padding-left: 28px;
+    position: relative;
+    text-align: left;
+}
+
+/* Remove the previous checkmark implementation */
+.plan ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232B95DD' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Special styling for featured plan checkmarks */
+.plan.featured ul li::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300E0FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+/* Alternative approach using Font Awesome (choose one approach) */
+/*
+.plan ul li::before {
+    content: '\f00c';  // Font Awesome checkmark icon
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-color);
+    font-size: 14px;
+}
+*/
+
+.subscribe-btn {
+    background: var(--button-gradient);
+    font-family: "Plus Jakarta Sans", sans-serif;
+    border: none;
+    font-weight: 600;
+    text-shadow: #444 1px 1px 1px;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.subscribe-btn:hover {
+    background: linear-gradient(90deg, var(--button-gradient-end) 0%, var(--button-gradient-start) 100%);
+}
+
+.plan.featured .subscribe-btn {
+    background: linear-gradient(
+        45deg,
+        var(--neon-blue),
+        var(--electric-violet)
+    );
+    color: white;
+    border: none;
+    font-weight: 600;
+    padding: 12px 24px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 
+        0 4px 15px rgba(0, 224, 255, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.plan.featured .subscribe-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 6px 20px rgba(0, 224, 255, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+    background: linear-gradient(
+        45deg,
+        var(--electric-violet),
+        var(--neon-blue)
+    );
+}
+
+/* Add shimmer effect to premium button */
+.plan.featured .subscribe-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+/* Premium Plan Container Specific Styles */
+.plan.premium {
+    background: linear-gradient(145deg, rgba(111, 0, 255, 0.1), rgba(0, 224, 255, 0.1));
+    border: 1px solid rgba(111, 0, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Premium Plan Button Specific Styles */
+.plan.premium .subscribe-btn {
+    background: linear-gradient(
+        45deg,
+        var(--electric-violet),
+        var(--neon-blue)
+    );
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(111, 0, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.plan.premium .subscribe-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 25px rgba(111, 0, 255, 0.4),
+        0 8px 25px rgba(0, 224, 255, 0.4);
+}
+
+.plan.premium .subscribe-btn:active {
+    transform: translateY(1px);
+}
+
+/* Add subtle shine effect */
+.plan.premium .subscribe-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.plan.premium .subscribe-btn:hover::before {
+    left: 100%;
+}
+
+/* Mobile swipe cards */
+@media (max-width: 768px) {
+    .subscription-plans {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        padding: 20px 0;
+    }
+
+    .plan {
+        scroll-snap-align: center;
+        flex: 0 0 85%;
+        margin: 0 10px;
+    }
+}
+
+footer {
+    background-color: #2c2c2e;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Focus styles for better keyboard navigation */
+.plan:focus-within {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.subscribe-btn:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(43, 149, 221, 0.2);
+}
+
+/* Skip link enhancement */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: var(--accent-color);
+    color: white;
+    padding: 8px;
+    z-index: 1001;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Add feature highlight animation */
+@keyframes featureHighlight {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Add seasonal themes support */
+.plan.seasonal-theme {
+    --theme-color: var(--seasonal-accent);
+    --theme-gradient: var(--seasonal-gradient);
+}
+
+.subscription-progress {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    position: relative;
+}
+
+.subscription-progress::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: -1;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+}
+
+.step-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--header-gradient-end);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.progress-step.active .step-number {
+    background: var(--button-gradient);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(43, 149, 221, 0.3);
+}
+
+.step-text {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.progress-step.active .step-text {
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .subscription-progress {
+        gap: 20px;
+    }
+    
+    .step-text {
+        font-size: 0.8rem;
+    }
+    
+    .step-number {
+        width: 28px;
+        height: 28px;
+    }
+}

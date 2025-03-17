@@ -1,0 +1,211 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.confirmation-container {
+    background: linear-gradient(315deg, rgba(13, 17, 23, 0.95), rgba(25, 32, 44, 0.95));
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    max-width: 800px;
+    margin: 2rem auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.success-animation {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.success-animation i {
+    font-size: 4rem;
+    color: var(--neon-blue);
+    animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    background: linear-gradient(45deg, var(--neon-blue), var(--cosmic-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.5em;
+}
+
+.confirmation-details {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.subscription-info {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9em;
+}
+
+.value {
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.features-preview {
+    margin-top: 2rem;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.feature-list li:hover {
+    background: rgba(0, 224, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.feature-list i {
+    color: var(--neon-blue);
+    font-size: 1.2em;
+}
+
+.receipt-info {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.download-receipt {
+    background: transparent;
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.download-receipt:hover {
+    background: rgba(0, 224, 255, 0.1);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.primary-button, .secondary-button {
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.primary-button {
+    background: linear-gradient(45deg, var(--neon-blue), var(--cosmic-pink));
+    color: white;
+    border: none;
+}
+
+.secondary-button {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+}
+
+.primary-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 224, 255, 0.3);
+}
+
+.secondary-button:hover {
+    border-color: var(--neon-blue);
+    background: rgba(0, 224, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .confirmation-container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-list {
+        grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+}

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Page - Banshee Music App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="artist.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <nav role="navigation" aria-label="Main navigation">
+            <div class="logo">
+                <a href="subscription.html" aria-label="Go to subscription page">
+                    <img src="imgs/logo-B.png" alt="Banshee Music Logo" loading="lazy">
+                </a>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="player.html">Player</a></li>
+            </ul>
+            <div class="user-profile">
+                <button class="profile-button" aria-expanded="false" aria-controls="user-menu">
+                    <img class="profile-icon" src="imgs/profile-icon-B.png" alt="User Profile" loading="lazy">
+                </button>
+                <div id="user-menu" class="dropdown" hidden>
+                    <ul>
+                        <li><a href="settings.html">Settings</a></li>
+                        <li><a href="notifications.html">Notifications</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content" role="main" class="container">
+        <div class="section artist-header">
+            <div class="artist-photo-container">
+                <img src="imgs/album-04-B.png" alt="Artist Name" class="artist-photo">
+            </div>
+            <div class="artist-info">
+                <div class="artist-name">
+                    <h1>John Doe</h1>
+                    <div class="subtitle">Professional Music Artist</div>
+                </div>
+                <p class="artist-bio">
+                    Artist Biography goes here. This is a short description about the artist, 
+                    their journey, and their musical style. Lorem ipsum dolor sit amet, 
+                    consectetur adipiscing elit.
+                </p>
+                <div class="artist-stats">
+                    <div class="stat">
+                        <span class="stat-number">2.5M</span>
+                        <span class="stat-label">Monthly Listeners</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">500K</span>
+                        <span class="stat-label">Followers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">15</span>
+                        <span class="stat-label">Albums</span>
+                    </div>
+                </div>
+                <div class="artist-actions">
+                    <button class="action-btn play-btn">
+                        <i class="fas fa-play"></i>
+                        Play
+                    </button>
+                    <button class="action-btn follow-btn">
+                        <i class="fas fa-user-plus"></i>
+                        Follow
+                    </button>
+                    <button class="action-btn share-btn" aria-label="Share artist">
+                        <i class="fas fa-share-alt"></i>
+                        Share
+                    </button>
+                    <!-- Share Modal -->
+                    <div id="shareModal" class="share-modal" hidden>
+                        <div class="share-modal-content">
+                            <h3>Share Artist</h3>
+                            <div class="share-options">
+                                <button class="share-option" data-platform="facebook">
+                                    <i class="fab fa-facebook"></i>
+                                    Facebook
+                                </button>
+                                <button class="share-option" data-platform="twitter">
+                                    <i class="fab fa-twitter"></i>
+                                    Twitter
+                                </button>
+                                <button class="share-option" data-platform="instagram">
+                                    <i class="fab fa-instagram"></i>
+                                    Instagram
+                                </button>
+                                <button class="share-option copy-link">
+                                    <i class="fas fa-link"></i>
+                                    Copy Link
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="music-content">
+                <div class="section music">
+                    <h2>Music</h2>
+                    <div class="items">
+                        <div class="item">
+                            <h3>Album 1</h3>
+                            <button>Download</button>
+                        </div>
+                        <div class="item">
+                            <h3>Album 2</h3>
+                            <button>Download</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section demos">
+                    <h2>Demo Tracks</h2>
+                    <div class="items">
+                        <div class="item">
+                            <h3>Track 1</h3>
+                            <button>Play Demo</button>
+                        </div>
+                        <div class="item">
+                            <h3>Track 2</h3>
+                            <button>Play Demo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section trending">
+                    <h2>Trending Music</h2>
+                    <div class="items">
+                        <div class="item">
+                            <img class="music-note" src="imgs/album-01.png" alt="Album 1" loading="lazy">
+                            <h3>Album 1</h3>
+                            <button>Play</button>
+                        </div>
+                        <div class="item">
+                            <img class="music-note" src="imgs/album-02.png" alt="Album 2" loading="lazy">
+                            <h3>Album 2</h3>
+                            <button>Play</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="event-content">
+                <div class="section concerts">
+                    <h2>Concert Dates</h2>
+                    <div class="items">
+                        <div class="item">
+                            <h3>Concert 1</h3>
+                            <p>Date: June 1, 2024</p>
+                            <p>Venue: Madison Square Garden</p>
+                            <button>Book Tickets</button>
+                        </div>
+                        <div class="item">
+                            <h3>Concert 2</h3>
+                            <p>Date: July 15, 2024</p>
+                            <p>Venue: The O2 Arena</p>
+                            <button>Book Tickets</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section events">
+                    <h2>Special Events</h2>
+                    <div class="items">
+                        <div class="item">
+                            <h3>Event 1</h3>
+                            <p>Date: June 20, 2024</p>
+                            <p>Location: Los Angeles</p>
+                            <button>Book Event</button>
+                        </div>
+                        <div class="item">
+                            <h3>Event 2</h3>
+                            <p>Date: August 5, 2024</p>
+                            <p>Location: New York City</p>
+                            <button>Book Event</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section gallery-section">
+            <h2>Gallery</h2>
+            <div class="items gallery-grid">
+                <div class="item gallery-item">
+                    <img src="https://placehold.co/600x400/1a1a1a/ffffff?text=Concert+1" alt="Concert Photo 1" loading="lazy" />
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Concert in New York</span>
+                        <span class="gallery-date">June 2023</span>
+                    </div>
+                </div>
+                <div class="item gallery-item">
+                    <img src="https://placehold.co/600x400/1a1a1a/ffffff?text=Concert+2" alt="Concert Photo 2" loading="lazy" />
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Live at Madison Square</span>
+                        <span class="gallery-date">July 2023</span>
+                    </div>
+                </div>
+                <div class="item gallery-item">
+                    <img src="https://placehold.co/600x400/1a1a1a/ffffff?text=Concert+3" alt="Concert Photo 3" loading="lazy" />
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Summer Festival</span>
+                        <span class="gallery-date">August 2023</span>
+                    </div>
+                </div>
+                <div class="item gallery-item">
+                    <img src="https://placehold.co/600x400/1a1a1a/ffffff?text=Concert+4" alt="Concert Photo 4" loading="lazy" />
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">World Tour Opening</span>
+                        <span class="gallery-date">September 2023</span>
+                    </div>
+                </div>
+                <div class="item gallery-item">
+                    <img src="https://placehold.co/600x400/1a1a1a/ffffff?text=Concert+5" alt="Concert Photo 5" loading="lazy" />
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Backstage Moments</span>
+                        <span class="gallery-date">October 2023</span>
+                    </div>
+                </div>
+                <div class="item gallery-item">
+                    <img src="https://placehold.co/600x400/1a1a1a/ffffff?text=Concert+6" alt="Concert Photo 6" loading="lazy" />
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Fan Meet & Greet</span>
+                        <span class="gallery-date">November 2023</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-controls">
+                <button class="action-btn prev-btn">
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <button class="action-btn next-btn">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Lightbox for Image Gallery -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-image" alt="Gallery Lightbox Image">
+    </div>
+
+    <script src="artist.js"></script>
+</body>
+</html>

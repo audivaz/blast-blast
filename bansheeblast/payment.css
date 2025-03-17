@@ -1,0 +1,513 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+:root {
+    --neon-blue: #00E0FF;
+    --cosmic-pink: #FF006E;
+    --card-bg: linear-gradient(315deg, rgba(13, 17, 23, 0.95), rgba(25, 32, 44, 0.95));
+    --input-bg: rgba(0, 0, 0, 0.2);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --hover-border: rgba(0, 224, 255, 0.3);
+}
+
+.welcome-header {
+    color: var(--heading-gradient-primary);
+    font-size: 2.5em;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--neon-blue), var(--cosmic-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+    text-align: center;
+}
+
+.subscription-progress {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.step-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.progress-step.completed .step-icon {
+    background: var(--neon-blue);
+    border-color: var(--neon-blue);
+}
+
+.progress-step.active .step-icon {
+    border-color: var(--neon-blue);
+    color: var(--neon-blue);
+}
+
+.step-text {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.progress-step.active .step-text {
+    color: var(--neon-blue);
+}
+
+.payment-container {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    max-width: 800px;
+    margin: 2rem auto;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+}
+
+.payment-container:hover {
+    box-shadow: 0 6px 25px rgba(0, 224, 255, 0.2);
+    border-color: rgba(0, 224, 255, 0.3);
+}
+
+.payment-container input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--text-color);
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.payment-container input[type="text"]:focus {
+    border-color: var(--neon-blue);
+    background-color: rgba(0, 0, 0, 0.25);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 224, 255, 0.2);
+}
+
+.plan-selection, .payment-details {
+    margin-bottom: 2rem;
+}
+
+.plans label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+.plans input[type="radio"] {
+    margin-right: 10px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.input-group input {
+    padding-left: 35px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.4);
+    transition: color 0.3s ease;
+}
+
+.input-group input:focus + i {
+    color: var(--neon-blue);
+}
+
+/* Fix CVC input and icon overlap - Revised */
+.input-group.cvc-group {
+    position: relative;
+    width: 100%;
+}
+
+.input-group.cvc-group input {
+    width: 100%;
+    padding: 12px 12px 12px 40px; /* Increased left padding to prevent overlap */
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.input-group.cvc-group i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: rgba(255, 255, 255, 0.4);
+    z-index: 1; /* Ensure icon stays above input */
+}
+
+.plan-option {
+    display: block;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.plan-option:hover {
+    border-color: var(--neon-blue);
+    background-color: rgba(0, 224, 255, 0.1);
+}
+
+.plan-details {
+    margin-left: 25px;
+}
+
+.plan-name {
+    font-size: 1.1em;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.plan-features li {
+    margin: 5px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.plan-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--neon-blue);
+}
+
+.payment-methods {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.payment-method {
+    flex: 1;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.payment-method i {
+    font-size: 1.2em;
+}
+
+.payment-method.active {
+    background: rgba(0, 224, 255, 0.1);
+    border-color: var(--neon-blue);
+    position: relative;
+}
+
+.payment-method.active::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 10px;
+    background: linear-gradient(45deg, var(--neon-blue), var(--cosmic-pink));
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.terms-group {
+    margin: 20px 0;
+}
+
+.terms-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9em;
+}
+
+.terms-link {
+    color: var(--neon-blue);
+    text-decoration: none;
+}
+
+.terms-link:hover {
+    text-decoration: underline;
+}
+
+.secure-payment {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9em;
+    margin: 15px 0;
+}
+
+.secure-payment i {
+    color: var(--neon-blue);
+    margin-right: 5px;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.back-button {
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.payment-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(90deg, var(--neon-blue), var(--cosmic-pink));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.payment-button.loading {
+    pointer-events: none;
+}
+
+.payment-button.loading::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.payment-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 224, 255, 0.3), 0 8px 25px rgba(255, 0, 110, 0.3);
+}
+
+.payment-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 224, 255, 0.2);
+}
+
+.payment-success {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.payment-success.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.success-content {
+    background: linear-gradient(315deg, rgba(13, 17, 23, 0.95), rgba(25, 32, 44, 0.95));
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.payment-success.visible .success-content {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .payment-container {
+        grid-template-columns: 1fr;
+        width: 95%;
+        padding: 1rem;
+    }
+
+    .input-row {
+        grid-template-columns: 1fr;
+    }
+
+    .subscription-progress {
+        gap: 1.5rem;
+    }
+}
+
+/* Style the plan selection */
+.plan-selection {
+    background: var(--glass-bg);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    border: 1px solid var(--border-light);
+}
+
+.plan-selection h3 {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-size: 1.2rem;
+}
+
+.plan-option {
+    background: linear-gradient(315deg, rgba(13, 17, 23, 0.7), rgba(25, 32, 44, 0.7));
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.plan-option:hover {
+    border-color: var(--neon-blue);
+    background: linear-gradient(315deg, rgba(13, 17, 23, 0.8), rgba(25, 32, 44, 0.8));
+    transform: translateY(-2px);
+}
+
+.plan-option.selected {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 15px rgba(0, 224, 255, 0.2);
+}
+
+/* Style the country dropdown - Revised */
+.input-group select {
+    width: 100%;
+    padding: 12px 35px 12px 12px;
+    background: rgba(13, 17, 23, 0.95); /* Darker background */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--border-radius-sm);
+    color: var(--text-color);
+    font-size: 1rem;
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Style dropdown options */
+.input-group select option {
+    background: rgba(13, 17, 23, 0.95); /* Match select background */
+    color: var(--text-color);
+    padding: 12px;
+}
+
+.input-group select:hover {
+    border-color: var(--hover-border);
+    background: rgba(13, 17, 23, 0.98);
+}
+
+.input-group select:focus {
+    border-color: var(--neon-blue);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 224, 255, 0.2);
+    background: rgba(13, 17, 23, 0.98);
+}
+
+/* Add custom dropdown arrow */
+.input-group.select-group {
+    position: relative;
+}
+
+.input-group.select-group::after {
+    content: '▼';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+    font-size: 0.8rem;
+}

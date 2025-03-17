@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Library - Banshee Music App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="library.css">
+    <link rel="stylesheet" href="glimmer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header>
+        <nav role="navigation" aria-label="Main navigation">
+            <div class="logo">
+                <a href="subscription.html" aria-label="Go to subscription page">
+                    <img src="imgs/logo-B.png" alt="Banshee Music Logo" loading="lazy">
+                </a>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="library.html" aria-current="page">Library</a></li>
+                <li><a href="player.html">Player</a></li>
+            </ul>
+            <div class="user-profile">
+                <button class="profile-button" aria-expanded="false" aria-controls="dropdown-menu">
+                    <img class="profile-icon" src="imgs/profile-icon-B.png" alt="User Profile" loading="lazy">
+                </button>
+                <div class="dropdown" id="dropdown-menu">
+                    <ul>
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="settings.html">Settings</a></li>
+                        <li><a href="notifications.html">Notifications</a></li>
+                        <li><a href="#" class="logout">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content" class="library-container">
+        <!-- Hero Section with Dynamic Stats -->
+        <section class="library-hero glimmer-background">
+            <div class="hero-content">
+                <div class="particles-container">
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                </div>
+                <h1>Your Music Universe</h1>
+                <p class="hero-subtitle">Discover your personal collection and favorites</p>
+                <div class="library-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="24">24</span>
+                        <span class="stat-label">Playlists</span>
+                        <div class="stat-icon">
+                            <i class="fas fa-list-music"></i>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="142">142</span>
+                        <span class="stat-label">Liked Songs</span>
+                        <div class="stat-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="37">37</span>
+                        <span class="stat-label">Artists</span>
+                        <div class="stat-icon">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Search Section -->
+        <section class="search-section">
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="library-search" class="search-bar" 
+                           placeholder="Search your library..." aria-label="Search library">
+                    <button class="search-clear" aria-label="Clear search">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <button class="search-submit-btn" aria-label="Search">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="search-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="playlists">Playlists</button>
+                    <button class="filter-btn" data-filter="songs">Songs</button>
+                    <button class="filter-btn" data-filter="artists">Artists</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Playlists Section -->
+        <section class="library-section playlists-section">
+            <div class="section-header">
+                <h2>Your Playlists</h2>
+                <div class="header-actions">
+                    <button class="create-playlist-btn">
+                        <i class="fas fa-plus"></i>
+                        Create Playlist
+                    </button>
+                </div>
+            </div>
+            
+            <div class="carousel" data-flickity='{ 
+                "wrapAround": true, 
+                "pageDots": true, 
+                "prevNextButtons": true,
+                "autoPlay": false,
+                "pauseAutoPlayOnHover": true,
+                "cellAlign": "left",
+                "contain": true
+            }'>
+                <!-- First Cell -->
+                <div class="carousel-cell">
+                    <div class="items">
+                        <div class="item" data-type="playlists">
+                            <div class="img-container">
+                                <img src="imgs/album-01.png" alt="Summer Hits" loading="lazy" onload="this.parentElement.classList.add('loaded')">
+                                <div class="play-overlay">
+                                    <button class="play-button" aria-label="Play Summer Hits">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <div class="text-content">
+                                    <h3>Summer Hits</h3>
+                                    <p>15 tracks</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-type="playlists">
+                            <div class="img-container">
+                                <img src="imgs/album-02.png" alt="Workout Mix" loading="lazy" onload="this.parentElement.classList.add('loaded')">
+                                <div class="play-overlay">
+                                    <button class="play-button" aria-label="Play Workout Mix">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <div class="text-content">
+                                    <h3>Workout Mix</h3>
+                                    <p>20 tracks</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-type="playlists">
+                            <div class="img-container">
+                                <img src="imgs/album-03.png" alt="Chill Vibes" loading="lazy" onload="this.parentElement.classList.add('loaded')">
+                                <div class="play-overlay">
+                                    <button class="play-button" aria-label="Play Chill Vibes">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <div class="text-content">
+                                    <h3>Chill Vibes</h3>
+                                    <p>18 tracks</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-type="playlists">
+                            <div class="img-container">
+                                <img src="imgs/album-04.png" alt="Rock Classics" loading="lazy" onload="this.parentElement.classList.add('loaded')">
+                                <div class="play-overlay">
+                                    <button class="play-button" aria-label="Play Rock Classics">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <div class="text-content">
+                                    <h3>Rock Classics</h3>
+                                    <p>22 tracks</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-type="playlists">
+                            <div class="img-container">
+                                <img src="imgs/album-05.png" alt="Jazz Collection" loading="lazy" onload="this.parentElement.classList.add('loaded')">
+                                <div class="play-overlay">
+                                    <button class="play-button" aria-label="Play Jazz Collection">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <div class="text-content">
+                                    <h3>Jazz Collection</h3>
+                                    <p>25 tracks</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Cell -->
+                <div class="carousel-cell">
+                    <div class="items">
+                        <div class="item" data-type="playlists">
+                            <div class="img-container">
+                                <img src="imgs/album-06.png" alt="Study Focus" loading="lazy" onload="this.parentElement.classList.add('loaded')">
+                                <div class="play-overlay">
+                                    <button class="play-button" aria-label="Play Study Focus">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <div class="text-content">
+                                    <h3>Study Focus</h3>
+                                    <p>30 tracks</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-type="playlists">
+                            <div class="img-container">
+                                <img src="imgs/album-07.png" alt="Electronic Beats" loading="lazy" onload="this.parentElement.classList.add('loaded')">
+                                <div class="play-overlay">
+                                    <button class="play-button" aria-label="Play Electronic Beats">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <div class="text-content">
+                                    <h3>Electronic Beats</h3>
+                                    <p>28 tracks</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-type="playlists">
+                            <div class="img-container">
+                                <img src="imgs/album-08.png" alt="90s Throwback" loading="lazy" onload="this.parentElement.classList.add('loaded')">
+                                <div class="play-overlay">
+                                    <button class="play-button" aria-label="Play 90s Throwback">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <div class="text-content">
+                                    <h3>90s Throwback</h3>
+                                    <p>24 tracks</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-type="playlists">
+                            <div class="img-container">
+                                <img src="imgs/album-09.png" alt="Acoustic Sessions" loading="lazy" onload="this.parentElement.classList.add('loaded')">
+                                <div class="play-overlay">
+                                    <button class="play-button" aria-label="Play Acoustic Sessions">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <div class="text-content">
+                                    <h3>Acoustic Sessions</h3>
+                                    <p>20 tracks</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-type="playlists">
+                            <div class="img-container">
+                                <img src="imgs/album-10.png" alt="Hip Hop Essentials" loading="lazy" onload="this.parentElement.classList.add('loaded')">
+                                <div class="play-overlay">
+                                    <button class="play-button" aria-label="Play Hip Hop Essentials">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <div class="text-content">
+                                    <h3>Hip Hop Essentials</h3>
+                                    <p>26 tracks</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Third Cell -->
+                <div class="carousel-cell">
+                    <div class="items">
+                        <div class="item" data-type="playlists">
+                            <div class="img-container">
+                                <img src="imgs/album-11.png" alt="Latin Hits" loading="lazy" onload="this.parentElement.classList.add('loaded')">
+                                <div class="play-overlay">
+                                    <button class="play-button" aria-label="Play Latin Hits">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <div class="text-content">
+                                    <h3>Latin Hits</h3>
+                                    <p>18 tracks</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-type="playlists">
+                            <div class="img-container">
+                                <img src="imgs/album-12.png" alt="Country Roads" loading="lazy" onload="this.parentElement.classList.add('loaded')">
+                                <div class="play-overlay">
+                                    <button class="play-button" aria-label="Play Country Roads">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <div class="text-content">
+                                    <h3>Country Roads</h3>
+                                    <p>22 tracks</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-type="playlists">
+                            <div class="img-container">
+                                <img src="imgs/album-13.png" alt="Indie Mix" loading="lazy" onload="this.parentElement.classList.add('loaded')">
+                                <div class="play-overlay">
+                                    <button class="play-button" aria-label="Play Indie Mix">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <div class="text-content">
+                                    <h3>Indie Mix</h3>
+                                    <p>20 tracks</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-type="playlists">
+                            <div class="img-container">
+                                <img src="imgs/album-14.png" alt="Metal Mayhem" loading="lazy" onload="this.parentElement.classList.add('loaded')">
+                                <div class="play-overlay">
+                                    <button class="play-button" aria-label="Play Metal Mayhem">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <div class="text-content">
+                                    <h3>Metal Mayhem</h3>
+                                    <p>24 tracks</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-type="playlists">
+                            <div class="img-container">
+                                <img src="imgs/album-15.png" alt="Classical Moments" loading="lazy" onload="this.parentElement.classList.add('loaded')">
+                                <div class="play-overlay">
+                                    <button class="play-button" aria-label="Play Classical Moments">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <div class="text-content">
+                                    <h3>Classical Moments</h3>
+                                    <p>30 tracks</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Content Grid -->
+        <div class="dynamic-sections-grid">
+            <!-- Recently Played Section -->
+            <section class="library-section recently-played">
+                <div class="section-header">
+                    <h2>Recently Played</h2>
+                    <div class="header-actions">
+                        <span class="song-count">37 songs</span> <!-- Added song count -->
+                    </div>
+                </div>
+                
+                <div class="carousel" data-flickity='{ 
+                    "wrapAround": true, 
+                    "pageDots": true, 
+                    "prevNextButtons": true,
+                    "autoPlay": false,
+                    "pauseAutoPlayOnHover": true,
+                    "cellAlign": "left",
+                    "contain": true,
+                    "groupCells": true
+                }'>
+                    <div class="carousel-cell">
+                        <div class="items">
+                            <div class="item" data-type="songs">
+                                <div class="img-container">
+                                    <img src="imgs/album-01.png" alt="Recently Played 1" loading="lazy">
+                                    <div class="play-overlay">
+                                        <button class="play-button" aria-label="Play Recently Played 1">
+                                            <i class="fas fa-play"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="item-content">
+                                    <div class="text-content">
+                                        <h3>Song Title</h3>
+                                        <p>Artist Name</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Additional items will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="carousel-cell">
+                        <div class="items">
+                            <div class="item" data-type="songs">
+                                <div class="img-container">
+                                    <img src="imgs/album-02.png" alt="Recently Played 2" loading="lazy">
+                                    <div class="play-overlay">
+                                        <button class="play-button" aria-label="Play Recently Played 2">
+                                            <i class="fas fa-play"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="item-content">
+                                    <div class="text-content">
+                                        <h3>Song Title</h3>
+                                        <p>Artist Name</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Additional items will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="carousel-cell">
+                        <div class="items">
+                            <div class="item" data-type="songs">
+                                <div class="img-container">
+                                    <img src="imgs/album-03.png" alt="Recently Played 3" loading="lazy">
+                                    <div class="play-overlay">
+                                        <button class="play-button" aria-label="Play Recently Played 3">
+                                            <i class="fas fa-play"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="item-content">
+                                    <div class="text-content">
+                                        <h3>Song Title</h3>
+                                        <p>Artist Name</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Additional items will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Liked Songs Section -->
+            <section class="library-section liked-songs">
+                <div class="section-header">
+                    <h2>Liked Songs</h2>
+                    <div class="header-actions">
+                        <span class="song-count">142 songs</span>
+                    </div>
+                </div>
+                
+                <div class="carousel" data-flickity='{ 
+                    "wrapAround": true, 
+                    "pageDots": true, 
+                    "prevNextButtons": true,
+                    "autoPlay": false,
+                    "pauseAutoPlayOnHover": true,
+                    "cellAlign": "left",
+                    "contain": true,
+                    "groupCells": true
+                }'>
+                    <div class="carousel-cell">
+                        <div class="items">
+                            <div class="item" data-type="songs">
+                                <div class="img-container">
+                                    <img src="imgs/album-01.png" alt="Liked Song 1" loading="lazy">
+                                    <div class="play-overlay">
+                                        <button class="play-button" aria-label="Play Liked Song 1">
+                                            <i class="fas fa-play"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="item-content">
+                                    <div class="text-content">
+                                        <h3>Song Title</h3>
+                                        <p>Artist Name</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Additional items will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="carousel-cell">
+                        <div class="items">
+                            <div class="item" data-type="songs">
+                                <div class="img-container">
+                                    <img src="imgs/album-02.png" alt="Liked Song 2" loading="lazy">
+                                    <div class="play-overlay">
+                                        <button class="play-button" aria-label="Play Liked Song 2">
+                                            <i class="fas fa-play"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="item-content">
+                                    <div class="text-content">
+                                        <h3>Song Title</h3>
+                                        <p>Artist Name</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Additional items will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="carousel-cell">
+                        <div class="items">
+                            <div class="item" data-type="songs">
+                                <div class="img-container">
+                                    <img src="imgs/album-03.png" alt="Liked Song 3" loading="lazy">
+                                    <div class="play-overlay">
+                                        <button class="play-button" aria-label="Play Liked Song 3">
+                                            <i class="fas fa-play"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="item-content">
+                                    <div class="text-content">
+                                        <h3>Song Title</h3>
+                                        <p>Artist Name</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Additional items will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <button id="backToTop" class="back-to-top" aria-label="Back to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+    </main>
+
+    <!-- Move footer outside of main content -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="imgs/logo-B.png" alt="Banshee Music Logo" loading="lazy">
+            </div>
+            <div class="footer-info">
+                <p class="copyright">&copy; 2024 Banshee Music App. All rights reserved.</p>
+                <nav class="footer-nav">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="contact.html">Contact Us</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/library.js" type="module"></script>
+</body>
+</html>
